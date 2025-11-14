@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог — GameZone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">🎮 <span>GameZone</span></div>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="catalog.html" class="active">Каталог</a>
+      <a href="game.html">Игра дня</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="catalog">
+      <h2>Каталог популярных игр</h2>
+      <div class="filter-panel">
+        <label>Жанр:
+          <select id="genreFilter">
+            <option value="all">Все</option>
+            <option value="action">Экшен</option>
+            <option value="rpg">RPG</option>
+            <option value="racing">Гонки</option>
+            <option value="strategy">Стратегии</option>
+          </select>
+        </label>
+        <label>Цена до:
+          <input type="number" id="priceFilter" placeholder="₸" min="0">
+        </label>
+        <button id="applyFilter">Применить</button>
+      </div>
+
+      <div class="games-grid">
+
+        <script>
+          const games = [
+            ["Cyberpunk 2077", "images/game1.avif", "action", 7990],
+            ["The Witcher 3: Wild Hunt", "images/game2.avif", "rpg", 9990],
+            ["Assassin’s Creed Valhalla", "images/game3.jpg", "action", 8990],
+            ["Forza Horizon 5", "images/game4.jpg", "racing", 6490],
+            ["Civilization VI", "images/game5.jpg", "strategy", 5490],
+            ["GTA V", "images/game6.jpg", "action", 9990],
+            ["Elden Ring", "images/game7.webp", "rpg", 10990],
+            ["Call of Duty: MW III", "images/game8.webp", "action", 7990],
+            ["Need for Speed Unbound", "images/game9.jpg", "racing", 5890],
+            ["Total War: Warhammer III", "images/game10.jpg", "strategy", 4990],
+            ["Red Dead Redemption 2", "images/game11.webp", "action", 7590],
+            ["Skyrim Special Edition", "images/game12.jpg", "rpg", 8990],
+            ["Resident Evil 4 Remake", "images/game13.avif", "action", 10990],
+            ["Hogwarts Legacy", "images/game14.jpg", "rpg", 11990],
+            ["Starfield", "images/game15.jpg", "rpg", 12990],
+            ["Spider-Man 2", "images/game16.webp", "action", 11990],
+            ["Diablo IV", "images/game17.webp", "rpg", 9990],
+            ["Baldur’s Gate 3", "images/game18.avif", "rpg", 10990],
+            ["Tekken 8", "images/game19.jpg", "action", 8990],
+            ["EA FC 24", "images/game20.jpg", "racing", 7490],
+            ["Mortal Kombat 1", "images/game21.avif", "action", 9490],
+            ["Alan Wake 2", "images/game22.webp", "action", 10490],
+            ["God of War Ragnarök", "images/game23.webp", "action", 11990],
+            ["Star Wars Jedi: Survivor", "images/game24.jpg", "action", 11490]
+          ];
+          document.write(
+            games.map(([name,img,genre,price]) => `
+              <article class="game-card" data-genre="${genre}" data-price="${price}">
+                <img src="${img}" alt="${name}">
+                <h3>${name}</h3>
+                <p>₸ ${price}</p>
+                <button class="detail-btn">Подробнее</button>
+                <button class="buy-btn">В корзину</button>
+              </article>
+            `).join('')
+          );
+        </script>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 GameZone | Контакты: support@gamezone.kz</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
